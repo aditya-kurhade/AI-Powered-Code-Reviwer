@@ -1,11 +1,11 @@
-import { GoogleGenAI } from "@google/genai";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenAI(process.env.GOOGLE_GEMINI_API_KEY);
-const models = genAI.getGenerativeModel({model: "gemini-2.5-flash"});
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 async function generateContent(prompt) {
-    const result = await models.generateContent({prompt});    
-    return result.response.text;
+    const result = await model.generateContent([prompt]);
+    return result.response.text();
 }
 
-models.exports = generateContent;
+module.exports = { generateContent };
