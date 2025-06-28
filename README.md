@@ -1,6 +1,7 @@
 # AI-Powered Code Reviewer
 
-![AI-Powered Code Reviewer Banner](images/AI-Powered-Code-Reviewer-screenshot.png)
+![AI-Powered Code Reviewer Banner](Project%20image/AI-Powered-Code-Reviewer-screenshot.png)
+
 
 This project is an AI-powered code review tool with a React frontend and a Node.js/Express backend using Google Gemini for code analysis.
 
