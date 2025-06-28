@@ -14,31 +14,47 @@ body,
   background-color: rgb(25, 26, 26);
 }
 
-main {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
-  gap: 15px;
+.heading {
+  text-align: center;
+  color: white;
+  font-size: 1.9rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
 }
 
+main {
+  height: 100vh;
+  width: 100%;
+  padding: 10px;
+}
+
+.container {
+  padding: 20px;
+  gap: 15px;
+  display: flex;
+  width: 100%;
+  height: 90vh;
+}
 
 .right {
   background-color: rgb(42, 42, 42);
   height: 100%;
-  width: 50%;
+  width: 70%;
   border-radius: 10px;
   padding: 20px;
+  overflow:auto;
 }
 
 .left {
   background-color: black;
   height: 100%;
-  width: 50%;
+  width: 30%;
   border-radius: 10px;
   border-radius: 10px;
-  
+  overflow: auto;
   position: relative;
+  font-size: 15px
 }
 
 /* .left .code,
@@ -50,7 +66,7 @@ main {
   background-color: rgb(20, 20, 20);
 } */
 
-main .left .review {
+.left .review {
   background-color: rgb(211, 219, 255);
   border-radius: 10px;
   padding: 10px 25px;

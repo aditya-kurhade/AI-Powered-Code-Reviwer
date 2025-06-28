@@ -2,22 +2,34 @@ import { useState, useEffect } from 'react'
 import "prismjs/themes/prism-tomorrow.css"
 import prismjs from 'prismjs'
 import Editor from "react-simple-code-editor"
+import axios from 'axios'
+import Markdown from "react-markdown"
+import rehypeHighlight from 'rehype-highlight'
+import 'highlight.js/styles/github-dark.css'
 import './App.css'
 
+
 function App() {
-  const [count, setCount] = useState(0)
-  const [code, setCode] = useState(`function sum(){
-  return 1 + 2;
-}`)
+  const [code, setCode] = useState(`// Write your code here or paste it from another source 
+  console.log("Hello, World!");`)
+
+  const [review, setReview] = useState('')
 
   useEffect(() => {
     // Highlight code blocks
     prismjs.highlightAll()
   })
 
+  async function reviewCode() {
+    const response = await axios.post('http://localhost:3000/ai/get-review', {code})
+      setReview(response.data)
+  }
+
   return (
     <>
     <main>
+      <h1 className='heading'>AI-Powered Code Reviewer</h1>
+      <div className="container">
       <div className="left">
         <div className="code">
           <Editor
@@ -29,18 +41,19 @@ function App() {
 
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace', 
-              fontSize: 20,
+              fontSize: 15,
               color: '#f8f8f2',
               height: '100%',
               width: '100%',
-              border: '1px solid #44475a',
               borderRadius: '5px',
             }}
           />
         </div>
-        <div className="review">Review</div>
+        <div className="review" onClick={reviewCode}>Review</div>
       </div>
-      <div className="right"></div>
+      <div className="right"><Markdown rehypePlugins={rehypeHighlight}
+      >{review}</Markdown></div>
+      </div>
     </main>
     </>
   )
