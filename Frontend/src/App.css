@@ -42,7 +42,7 @@ main {
   height: 100%;
   width: 70%;
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 0px 20px 35px;
   overflow:auto;
 }
 
