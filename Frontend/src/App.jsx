@@ -46,8 +46,8 @@ function App() {
             value={code}
             onValueChange={setCode}
             highlight={code => prismjs.highlight(code, prismjs.languages.js)}
-            padding={10}
             className="editor"
+            padding={10}
 
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace', 
@@ -55,8 +55,10 @@ function App() {
               color: '#f8f8f2',
               height: '100%',
               width: '100%',
-              borderRadius: '5px',
+              // borderRadius: '5px',
+              // padding: '10px',
             }}
+
           />
         </div>
         <div className="review" onClick={reviewCode}>Review</div>
